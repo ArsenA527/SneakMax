@@ -1,0 +1,176 @@
+@import "../mixins";
+
+.quiz {
+  padding: $big-offset 0;
+
+  &__content {
+    border-radius: 4px;
+    padding: $main-offset 100px;
+    background-color: $color-bg;
+
+    @include small-tablet {
+      padding: $main-offset;
+    }
+  }
+
+  &__title {
+    margin-bottom: $second-offset;
+  }
+
+  &__descr {
+    margin: 0;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: $small-offset;
+    font: $middle-book;
+    color: $color-jumbo;
+  }
+}
+
+.quiz-questions {
+  padding: $second-offset 0;
+}
+
+.quiz-question {
+  &__title {
+    margin: 0;
+    margin-bottom: $second-offset;
+    font: $prehigh-book;
+    color: $color-main;
+  }
+
+  &__label {
+    display: inline-block;
+
+    @include mobile {
+      width: 100%;
+    }
+  }
+
+  &__message {
+    border: none;
+    border-radius: 4px;
+    padding: $second-offset;
+    width: 465px;
+    height: 246px;
+    color: $color-cameo;
+    background-color: $color-white;
+    resize: none;
+
+    @include mobile {
+      width: 100%;
+    }
+  }
+
+  &__answers {
+    display: grid;
+    grid-auto-rows: 155px;
+    grid-template-columns: repeat(3, 1fr);
+    padding-bottom: $main-offset;
+    gap: $second-offset 70px;
+
+    @include small-tablet {
+      gap: $second-offset;
+    }
+
+    @include mobile {
+      display: block;
+    }
+  }
+
+  &__item {
+    img {
+      margin-bottom: $small-offset;
+    }
+
+    @include mobile {
+      &:not(:last-child) {
+        margin-bottom: 30px;
+      }
+    }
+  }
+
+  &__count {
+    font: $middle-book;
+    color: $color-jumbo;
+  }
+}
+
+.quiz-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid $color-jumbo;
+  padding-top: $second-offset;
+
+  @include mobile {
+    display: block;
+  }
+}
+
+.last-question {
+  display: none;
+  padding-top: $second-offset;
+
+  &__form {
+    position: relative;
+    border-radius: 4px;
+    padding: $main-offset;
+    max-width: 655px;
+    background: $color-cameo;
+  }
+
+  &__decorate {
+    position: absolute;
+    right: -185px;
+    top: -5px;
+
+    @include small-tablet {
+      display: none;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    margin-bottom: $small-offset;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 140%;
+    color: $color-white;
+
+    @include mobile {
+      font-size: 24px;
+      line-height: 30px;
+    }
+  }
+
+  &__descr {
+    margin: 0;
+    margin-bottom: $second-offset;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 140%;
+    color: $color-white;
+  }
+
+  &__input {
+    margin-bottom: $small-offset;
+    max-width: 500px;
+
+    &:nth-of-type(2) {
+      margin-bottom: $second-offset;
+    }
+
+    @include mobile {
+      max-width: none;
+    }
+  }
+
+  &__btn {
+    min-width: 220px;
+
+    @include mobile {
+      width: 100%;
+      min-width: auto;
+    }
+  }
+}

@@ -1,0 +1,76 @@
+@import "../mixins";
+
+.header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  background-color: $color-eastbay;
+
+  &__container {
+    $paddings: 15px;
+
+    position: relative;
+    align-items: center;
+    padding: $second-offset $paddings;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      width: calc(100% - ($paddings * 2));
+      height: 1px;
+      background-color: $color-border;
+      transform: translateX(-50%);
+    }
+  }
+
+  &__left {
+    grid-column: 2 span;
+  }
+
+  &__right {
+    display: flex;
+    justify-content: flex-end;
+    grid-column: 10 span;
+
+    @include tablet {
+      align-items: center;
+    }
+
+    @include mobile {
+      grid-column: 2 span;
+    }
+  }
+
+  &__nav {
+    @include tablet {
+      position: fixed;
+      left: 0;
+      top: 0;
+      z-index: 1000;
+      padding: 50px;
+      width: 70%;
+      height: 100vh;
+      background-color: $color-eastbay;
+      display: none;
+
+      &--active {
+        display: block;
+      }
+    }
+  }
+}
+
+.burger {
+  @include burger;
+
+  display: none;
+  color: $color-white;
+
+  @include tablet {
+    display: block;
+  }
+}

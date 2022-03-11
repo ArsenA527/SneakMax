@@ -1,0 +1,54 @@
+@import "../mixins";
+
+.team {
+  position: relative;
+  padding: $big-offset 0;
+  background-color: $color-eastbay;
+
+  &__title {
+    color: $color-white;
+  }
+
+  &__list {
+    position: relative;
+    z-index: 5;
+    gap: $main-offset $second-offset;
+  }
+
+  &__figure {
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    @include small-tablet {
+      display: none;
+    }
+  }
+
+  &__item {
+    grid-column: 4 span;
+  }
+
+  &__img {
+    overflow: hidden;
+    margin-bottom: $second-offset;
+    border-radius: 4px;
+
+    @include small-tablet {
+      width: 100%;
+    }
+  }
+
+  &__subtitle {
+    display: block;
+    margin-bottom: $second-offset;
+    font: $prehigh-book;
+    color: $color-white;
+  }
+
+  &__post {
+    display: block;
+    font: $middle-book;
+    color: $color-white;
+  }
+}
